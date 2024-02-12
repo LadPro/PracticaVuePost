@@ -1,13 +1,19 @@
 <template>
     <div>
-        
+        {{ post }}
     </div>
 </template>
 
 <script lang="ts" setup>
-import PostServices from "@/services/PostServices.ts"
+import PostService from "@/services/PostService"
+import { onMounted } from "vue";
 
-const services = new PostServices
+const service = new PostService
+const post = service.getPost()
+
+onMounted(async ()=>{
+    await service.fetchAll()
+})
 
 
 </script>
