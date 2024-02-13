@@ -13,11 +13,12 @@
 </template>
 
 <script lang="ts" setup>
+import IPost from "@/Interfaces/IPost";
 import PostService from "@/services/PostService"
 import { onMounted } from "vue";
 
 const service = new PostService
-const posts = service.getPost()
+const posts = service.getPosts()
 
 onMounted(async ()=>{
     await service.fetchAll()

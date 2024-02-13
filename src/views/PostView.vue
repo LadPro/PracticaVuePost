@@ -24,7 +24,7 @@ let post = service.getPost()
 
 onMounted(async()=>{
     const route = useRoute()
-    let id = route.params.id
+    let id:string | string[] = route.params.id
     await service.fetchById(id)
     
 })
