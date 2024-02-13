@@ -1,12 +1,22 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import IndexView from '../views/IndexView.vue'
+import PostView from '../views/PostView.vue'
 
 const routes: Array<RouteRecordRaw> = [
+  {
+    path: '/post',
+    redirect: to =>{return {name:'index'}}
+  },
   {
     path: '/',
     name: 'index',
     component: IndexView
+  },
+  {
+    path: '/:id',
+    name: 'post',
+    component: PostView
   },
   {
     path: '/about',
